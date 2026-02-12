@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EdgeCrash — Dashboard</title>
+  <meta name="description" content="EdgeCrash edge device monitoring dashboard — overview, devices, and incidents." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated Organic Background Blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
+    <div class="blob blob-6"></div>
+  </div>
+
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">EdgeCrash</h1>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tab-nav" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview" id="tab-overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="devices" id="tab-devices">Devices</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="incidents" id="tab-incidents">Incidents</button>
+    </nav>
+
+    <!-- ============ OVERVIEW PAGE ============ -->
+    <section class="page active" id="page-overview" role="tabpanel" aria-labelledby="tab-overview">
+      <div class="overview-layout">
+        <!-- Map Card -->
+        <div class="overview-left">
+          <div class="map-card">
+            <span class="map-label">map</span>
+          </div>
+        </div>
+        <!-- Metric Cards Grid -->
+        <div class="overview-right">
+          <div class="metric-card bright-1"></div>
+          <div class="metric-card bright-2"></div>
+          <div class="metric-card bright-3"></div>
+          <div class="metric-card bright-4"></div>
+        </div>
+      </div>
+      <!-- Bottom Row of Small Cards -->
+      <div class="overview-bottom">
+        <div class="metric-card-sm green-1"></div>
+        <div class="metric-card-sm green-2"></div>
+        <div class="metric-card-sm green-3"></div>
+        <div class="metric-card-sm green-4"></div>
+      </div>
+    </section>
+
+    <!-- ============ DEVICES PAGE ============ -->
+    <section class="page" id="page-devices" role="tabpanel" aria-labelledby="tab-devices">
+      <div class="devices-layout">
+        <!-- Left Panel -->
+        <div class="device-panel panel-left">
+          <div class="device-content">
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+          </div>
+          <div class="custom-scrollbar" aria-hidden="true">
+            <div class="scrollbar-thumb"></div>
+          </div>
+        </div>
+        <!-- Right Panel -->
+        <div class="device-panel panel-right">
+          <div class="device-content">
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+          </div>
+          <div class="custom-scrollbar" aria-hidden="true">
+            <div class="scrollbar-thumb"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INCIDENTS PAGE ============ -->
+    <section class="page" id="page-incidents" role="tabpanel" aria-labelledby="tab-incidents">
+      <div class="incidents-panel">
+        <div class="incidents-content">
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+        </div>
+        <div class="custom-scrollbar" aria-hidden="true">
+          <div class="scrollbar-thumb"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
