@@ -1,129 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edge Crash</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Alert Banner -->
-    <div id="alert-banner" class="alert-banner">
-      <div class="alert-banner__content">
-        <span class="alert-banner__icon">🚨</span>
-        <span class="alert-banner__text">ACCIDENT DETECTED</span>
-        <span class="alert-banner__subtext">Real-time crash event incoming from IoT device.</span>
-        <button
-          id="alert-close-btn"
-          class="alert-banner__close"
-          type="button"
-          aria-label="Dismiss accident alert"
-        >
-          ×
-        </button>
-      </div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EdgeCrash — Dashboard</title>
+  <meta name="description" content="EdgeCrash edge device monitoring dashboard — overview, devices, and incidents." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-    <!-- Main Layout -->
-    <div class="app-shell">
-      <div class="site-brand">
-        <div class="site-brand__logo">
-          <span class="site-brand__mark">EC</span>
-        </div>
-        <span class="site-brand__name">EdgeCrash</span>
-      </div>
+  <!-- Animated Organic Background Blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
+    <div class="blob blob-6"></div>
+  </div>
 
-      <header class="app-header">
-        <div class="app-header__title">
-          <h1>Edge Crash</h1>
-          <p>Real-time IoT crash monitoring dashboard</p>
-        </div>
-        <div class="app-header__meta">
-          <span class="app-header__badge">Live</span>
-          <span class="app-header__timestamp" id="system-timestamp">--:--:--</span>
-        </div>
-      </header>
+  <div class="app-container">
 
-      <nav class="app-nav">
-        <a href="index.html" class="app-nav__link app-nav__link--active">Overview</a>
-        <a href="incidents.html" class="app-nav__link">Incidents</a>
-        <a href="devices.html" class="app-nav__link">Devices</a>
-      </nav>
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">EdgeCrash</h1>
+    </header>
 
-      <main class="app-main">
-        <!-- Map Section -->
-        <section class="map-section">
-          <div class="card card--map">
-            <div class="card__header">
-              <div>
-                <h2>Incident Map</h2>
-                <p>Monitor crash locations in real time</p>
-              </div>
-            </div>
-            <div class="card__body card__body--map">
-              <div id="map" class="map-container">
-                <div class="map-placeholder">
-                  <p>Map will render here.</p>
-                  <p class="map-placeholder__hint">
-                    Integrate Google Maps JavaScript API in your script (no API key included here).
-                  </p>
-                </div>
-              </div>
-            </div>
+    <!-- Tab Navigation -->
+    <nav class="tab-nav" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview" id="tab-overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="devices" id="tab-devices">Devices</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="incidents" id="tab-incidents">Incidents</button>
+    </nav>
+
+    <!-- ============ OVERVIEW PAGE ============ -->
+    <section class="page active" id="page-overview" role="tabpanel" aria-labelledby="tab-overview">
+      <div class="overview-layout">
+        <!-- Map Card -->
+        <div class="overview-left">
+          <div class="map-card">
+            <span class="map-label">map</span>
           </div>
-        </section>
+        </div>
+        <!-- Metric Cards Grid -->
+        <div class="overview-right">
+          <div class="metric-card bright-1"></div>
+          <div class="metric-card bright-2"></div>
+          <div class="metric-card bright-3"></div>
+          <div class="metric-card bright-4"></div>
+        </div>
+      </div>
+      <!-- Bottom Row of Small Cards -->
+      <div class="overview-bottom">
+        <div class="metric-card-sm green-1"></div>
+        <div class="metric-card-sm green-2"></div>
+        <div class="metric-card-sm green-3"></div>
+        <div class="metric-card-sm green-4"></div>
+      </div>
+    </section>
 
-        <!-- Crash Info Panel -->
-        <aside class="info-section">
-          <div class="card card--info">
-            <div class="card__header">
-              <div>
-                <h2>Crash Details</h2>
-                <p>Last detected event</p>
-              </div>
-              <span id="status-badge" class="status-badge status-badge--normal">Normal</span>
-            </div>
-
-            <div class="card__body card__body--info">
-              <div class="metrics-grid">
-                <div class="metric">
-                  <span class="metric__label">Severity Level</span>
-                  <span id="severity-level" class="metric__value metric__value--accent">N/A</span>
-                </div>
-                <div class="metric">
-                  <span class="metric__label">Impact</span>
-                  <span id="severity-value" class="metric__value">0.0g</span>
-                </div>
-                <div class="metric">
-                  <span class="metric__label">Timestamp</span>
-                  <span id="crash-timestamp" class="metric__value metric__value--muted">—</span>
-                </div>
-                <div class="metric">
-                  <span class="metric__label">Latitude</span>
-                  <span id="crash-lat" class="metric__value">—</span>
-                </div>
-                <div class="metric">
-                  <span class="metric__label">Longitude</span>
-                  <span id="crash-lng" class="metric__value">—</span>
-                </div>
-                <div class="metric">
-                  <span class="metric__label">Status</span>
-                  <span id="crash-status" class="metric__value">Normal</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="card__footer">
-              <button id="simulate-crash-btn" class="btn btn--primary">
-                Simulate Crash
-              </button>
-            </div>
+    <!-- ============ DEVICES PAGE ============ -->
+    <section class="page" id="page-devices" role="tabpanel" aria-labelledby="tab-devices">
+      <div class="devices-layout">
+        <!-- Left Panel -->
+        <div class="device-panel panel-left">
+          <div class="device-content">
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
           </div>
-        </aside>
-      </main>
-    </div>
+          <div class="custom-scrollbar" aria-hidden="true">
+            <div class="scrollbar-thumb"></div>
+          </div>
+        </div>
+        <!-- Right Panel -->
+        <div class="device-panel panel-right">
+          <div class="device-content">
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+            <div class="device-line"></div>
+          </div>
+          <div class="custom-scrollbar" aria-hidden="true">
+            <div class="scrollbar-thumb"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script type="module" src="main.js"></script>
-  </body>
+    <!-- ============ INCIDENTS PAGE ============ -->
+    <section class="page" id="page-incidents" role="tabpanel" aria-labelledby="tab-incidents">
+      <div class="incidents-panel">
+        <div class="incidents-content">
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+          <div class="content-line"></div>
+        </div>
+        <div class="custom-scrollbar" aria-hidden="true">
+          <div class="scrollbar-thumb"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
-
