@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edge Crash</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Alert Banner -->
+    <div id="alert-banner" class="alert-banner">
+      <div class="alert-banner__content">
+        <span class="alert-banner__icon">🚨</span>
+        <span class="alert-banner__text">ACCIDENT DETECTED</span>
+        <span class="alert-banner__subtext">Real-time crash event incoming from IoT device.</span>
+        <button
+          id="alert-close-btn"
+          class="alert-banner__close"
+          type="button"
+          aria-label="Dismiss accident alert"
+        >
+          ×
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="app-shell">
+      <div class="site-brand">
+        <div class="site-brand__logo">
+          <span class="site-brand__mark">EC</span>
+        </div>
+        <span class="site-brand__name">EdgeCrash</span>
+      </div>
+
+      <header class="app-header">
+        <div class="app-header__title">
+          <h1>Edge Crash</h1>
+          <p>Real-time IoT crash monitoring dashboard</p>
+        </div>
+        <div class="app-header__meta">
+          <span class="app-header__badge">Live</span>
+          <span class="app-header__timestamp" id="system-timestamp">--:--:--</span>
+        </div>
+      </header>
+
+      <nav class="app-nav">
+        <a href="index.html" class="app-nav__link app-nav__link--active">Overview</a>
+        <a href="incidents.html" class="app-nav__link">Incidents</a>
+        <a href="devices.html" class="app-nav__link">Devices</a>
+      </nav>
+
+      <main class="app-main">
+        <!-- Map Section -->
+        <section class="map-section">
+          <div class="card card--map">
+            <div class="card__header">
+              <div>
+                <h2>Incident Map</h2>
+                <p>Monitor crash locations in real time</p>
+              </div>
+            </div>
+            <div class="card__body card__body--map">
+              <div id="map" class="map-container">
+                <div class="map-placeholder">
+                  <p>Map will render here.</p>
+                  <p class="map-placeholder__hint">
+                    Integrate Google Maps JavaScript API in your script (no API key included here).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Crash Info Panel -->
+        <aside class="info-section">
+          <div class="card card--info">
+            <div class="card__header">
+              <div>
+                <h2>Crash Details</h2>
+                <p>Last detected event</p>
+              </div>
+              <span id="status-badge" class="status-badge status-badge--normal">Normal</span>
+            </div>
+
+            <div class="card__body card__body--info">
+              <div class="metrics-grid">
+                <div class="metric">
+                  <span class="metric__label">Severity Level</span>
+                  <span id="severity-level" class="metric__value metric__value--accent">N/A</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Impact</span>
+                  <span id="severity-value" class="metric__value">0.0g</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Timestamp</span>
+                  <span id="crash-timestamp" class="metric__value metric__value--muted">—</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Latitude</span>
+                  <span id="crash-lat" class="metric__value">—</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Longitude</span>
+                  <span id="crash-lng" class="metric__value">—</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Status</span>
+                  <span id="crash-status" class="metric__value">Normal</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card__footer">
+              <button id="simulate-crash-btn" class="btn btn--primary">
+                Simulate Crash
+              </button>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
+

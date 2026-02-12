@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incident History • Edge Crash</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Alert Banner -->
+    <div id="alert-banner" class="alert-banner">
+      <div class="alert-banner__content">
+        <span class="alert-banner__icon">🚨</span>
+        <span class="alert-banner__text">ACCIDENT DETECTED</span>
+        <span class="alert-banner__subtext">Real-time crash event incoming from IoT device.</span>
+      </div>
+    </div>
+
+    <div class="app-shell">
+      <div class="site-brand">
+        <div class="site-brand__logo">
+          <span class="site-brand__mark">EC</span>
+        </div>
+        <span class="site-brand__name">EdgeCrash</span>
+      </div>
+
+      <header class="app-header">
+        <div class="app-header__title">
+          <h1>Incident History</h1>
+          <p>Recent crash events from connected devices</p>
+        </div>
+        <div class="app-header__meta">
+          <span class="app-header__badge">Live</span>
+          <span class="app-header__timestamp" id="system-timestamp">--:--:--</span>
+        </div>
+      </header>
+
+      <nav class="app-nav">
+        <a href="index.html" class="app-nav__link">Overview</a>
+        <a href="incidents.html" class="app-nav__link app-nav__link--active">Incidents</a>
+        <a href="devices.html" class="app-nav__link">Devices</a>
+      </nav>
+
+      <main class="app-main">
+        <section class="map-section">
+          <div class="card">
+            <div class="card__header">
+              <div>
+                <h2>Recent Incidents</h2>
+                <p>Most recent crash reports from your fleet</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Timestamp</th>
+                      <th>Device</th>
+                      <th>Location</th>
+                      <th>Severity</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#1024</td>
+                      <td>2026-02-12 18:30:04</td>
+                      <td>Unit-AX93</td>
+                      <td>37.4219, -122.0840</td>
+                      <td><span class="pill pill--high">High • 3.5g</span></td>
+                      <td><span class="status-badge status-badge--active">Active</span></td>
+                    </tr>
+                    <tr>
+                      <td>#1023</td>
+                      <td>2026-02-12 17:52:10</td>
+                      <td>Unit-AX12</td>
+                      <td>40.7128, -74.0060</td>
+                      <td><span class="pill pill--medium">Medium • 2.1g</span></td>
+                      <td><span class="status-badge status-badge--normal">Resolved</span></td>
+                    </tr>
+                    <tr>
+                      <td>#1022</td>
+                      <td>2026-02-12 16:05:33</td>
+                      <td>Unit-BX07</td>
+                      <td>34.0522, -118.2437</td>
+                      <td><span class="pill pill--low">Low • 1.2g</span></td>
+                      <td><span class="status-badge status-badge--normal">Resolved</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="info-section">
+          <div class="card card--info">
+            <div class="card__header">
+              <div>
+                <h2>Summary</h2>
+                <p>Today&apos;s incident overview</p>
+              </div>
+            </div>
+            <div class="card__body card__body--info">
+              <div class="metrics-grid">
+                <div class="metric">
+                  <span class="metric__label">Total Incidents</span>
+                  <span class="metric__value metric__value--accent">3</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Active</span>
+                  <span class="metric__value">1</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Average Severity</span>
+                  <span class="metric__value">2.3g</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Most Impacted Region</span>
+                  <span class="metric__value">Bay Area, CA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+  </html>
+

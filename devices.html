@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devices • Edge Crash</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Alert Banner -->
+    <div id="alert-banner" class="alert-banner">
+      <div class="alert-banner__content">
+        <span class="alert-banner__icon">🚨</span>
+        <span class="alert-banner__text">ACCIDENT DETECTED</span>
+        <span class="alert-banner__subtext">Real-time crash event incoming from IoT device.</span>
+      </div>
+    </div>
+
+    <div class="app-shell">
+      <div class="site-brand">
+        <div class="site-brand__logo">
+          <span class="site-brand__mark">EC</span>
+        </div>
+        <span class="site-brand__name">EdgeCrash</span>
+      </div>
+
+      <header class="app-header">
+        <div class="app-header__title">
+          <h1>Devices</h1>
+          <p>Health and connectivity of IoT crash units</p>
+        </div>
+        <div class="app-header__meta">
+          <span class="app-header__badge">Live</span>
+          <span class="app-header__timestamp" id="system-timestamp">--:--:--</span>
+        </div>
+      </header>
+
+      <nav class="app-nav">
+        <a href="index.html" class="app-nav__link">Overview</a>
+        <a href="incidents.html" class="app-nav__link">Incidents</a>
+        <a href="devices.html" class="app-nav__link app-nav__link--active">Devices</a>
+      </nav>
+
+      <main class="app-main">
+        <section class="map-section">
+          <div class="card">
+            <div class="card__header">
+              <div>
+                <h2>Fleet Devices</h2>
+                <p>Registered crash sensors and connectivity</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Device</th>
+                      <th>Last Seen</th>
+                      <th>Location</th>
+                      <th>Status</th>
+                      <th>Battery</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Unit-AX93</td>
+                      <td>Just now</td>
+                      <td>37.4219, -122.0840</td>
+                      <td><span class="pill pill--online">Online</span></td>
+                      <td>82%</td>
+                    </tr>
+                    <tr>
+                      <td>Unit-AX12</td>
+                      <td>3 min ago</td>
+                      <td>40.7128, -74.0060</td>
+                      <td><span class="pill pill--online">Online</span></td>
+                      <td>64%</td>
+                    </tr>
+                    <tr>
+                      <td>Unit-BX07</td>
+                      <td>18 min ago</td>
+                      <td>34.0522, -118.2437</td>
+                      <td><span class="pill pill--offline">Offline</span></td>
+                      <td>—</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="info-section">
+          <div class="card card--info">
+            <div class="card__header">
+              <div>
+                <h2>Fleet Health</h2>
+                <p>High-level device status</p>
+              </div>
+            </div>
+            <div class="card__body card__body--info">
+              <div class="metrics-grid">
+                <div class="metric">
+                  <span class="metric__label">Total Devices</span>
+                  <span class="metric__value metric__value--accent">3</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Online</span>
+                  <span class="metric__value">2</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Offline</span>
+                  <span class="metric__value">1</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Avg. Battery</span>
+                  <span class="metric__value">73%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+  </html>
+
